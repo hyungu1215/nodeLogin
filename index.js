@@ -32,10 +32,10 @@ app.get("/", (req, res) => {
 app.post("/register", (req, res) => {
   // 회원 가입 할 때 필요한 정보들을 client에서 가져오면
   // 그 것들을 데이터 베이스에 넣어준다.
-
   const user = new User(req.body);
 
-  user.save((err, doc) => {
+  user.save((err, userInfo) => {
+    console.log("save");
     if (err) {
       return res.json({
         success: false,
